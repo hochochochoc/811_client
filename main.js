@@ -2,58 +2,58 @@
 
 window.onload = function() {
     let posicion = 0;
-    displayClient();
-    document.getElementById("nextClient").onclick = nextClient;
-    document.getElementById("prevClient").onclick = prevClient;
-    document.getElementById("editClient").onclick = editClient;
-    document.getElementById("calculateEmissions").onclick = calculateEmissions;
-    document.getElementById("showDescription").onclick = showDescription;
+    mostrarCliente();
+    document.getElementById("clienteSiguiente").onclick = clienteSiguiente;
+    document.getElementById("clienteAnterior").onclick = clienteAnterior;
+    document.getElementById("editarCliente").onclick = editarCliente;
+    document.getElementById("calcEmisiones").onclick = calcEmisiones;
+    document.getElementById("mostrarDescripcion").onclick = mostrarDescripcion;
 };
 
-function displayClient() {
-    const client = clientes[posicion];
-    document.getElementById('clientDetails').innerHTML =
-        "<p>DNI: " + client.DNI + "</p>" +
-        "<p>Edad: " + client.edad + "</p>" +
-        "<p>Nacionalidad: " + client.nacionalidad + "</p>" +
-        "<p>Número de Vuelos: " + client.numVuelos + "</p>";
+function mostrarCliente() {
+    const cliente = clientes[posicion];
+    document.getElementById('detallesCliente').innerHTML =
+        "<p>DNI: " + cliente.DNI + "</p>" +
+        "<p>Edad: " + cliente.edad + "</p>" +
+        "<p>Nacionalidad: " + cliente.nacionalidad + "</p>" +
+        "<p>Número de Vuelos: " + cliente.numVuelos + "</p>";
 }
 
-function nextClient() {
+function clienteSiguiente() {
     posicion = (posicion + 1) % clientes.length;
-    displayClient();
+    mostrarCliente();
 }
 
-function prevClient() {
+function clienteAnterior() {
     posicion = (posicion - 1 + clientes.length) % clientes.length;
-    displayClient();
+    mostrarCliente();
 }
 
-function editClient() {
+function editarCliente() {
     var form = document.getElementById("editForm");
     form.style.display = form.style.display === "none" ? "block" : "none";
 }
 
-function applyEdit() {
-    const attributeName = document.getElementById("attributeName").value;
-    const newValue = document.getElementById("newValue").value;
+function aplicarCambio() {
+    const nombreAtributo = document.getElementById("nombreAtributo").value;
+    const nuevoValor = document.getElementById("nuevoValor").value;
     const client = clientes[posicion];
 
-    if(attributeName && newValue.trim() !== "") {
-        client[attributeName] = newValue;
-        displayClient(); // Refrescar
+    if(nombreAtributo && nuevoValor.trim() !== "") {
+        client[nombreAtributo] = nuevoValor;
+        mostrarCliente(); // Refrescar
     }
 
     document.getElementById("editForm").style.display = "none";
 }
 
-function calculateEmissions() {
+function calcEmisiones() {
     const client = clientes[posicion];
     const emissions = client.numVuelos * 0.5;
     alert("Emisiones de gases de efecto invernadero: " + emissions + " toneladas de CO2");
 }
 
-function showDescription() {
+function mostrarDescripcion() {
     const client = clientes[posicion];
     const description = "El cliente con el DNI de " + client.DNI + " tiene una edad de " + client.edad + 
         ", tiene la nacionalidad " + client.nacionalidad.toLowerCase() + "a y ha tomado " + client.numVuelos + " vuelos.";
