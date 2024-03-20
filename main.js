@@ -1,4 +1,15 @@
 
+
+window.onload = function() {
+    let posicion = 0;
+    displayClient();
+    document.getElementById("nextClient").onclick = nextClient;
+    document.getElementById("prevClient").onclick = prevClient;
+    document.getElementById("editClient").onclick = editClient;
+    document.getElementById("calculateEmissions").onclick = calculateEmissions;
+    document.getElementById("showDescription").onclick = showDescription;
+};
+
 function displayClient() {
     const client = clientes[posicion];
     document.getElementById('clientDetails').innerHTML =
@@ -48,12 +59,3 @@ function showDescription() {
         ", tiene la nacionalidad " + client.nacionalidad.toLowerCase() + "a y ha tomado " + client.numVuelos + " vuelos.";
     alert(description);
 }
-
-window.onload = function() {
-    displayClient();
-    document.getElementById("nextClient").onclick = nextClient;
-    document.getElementById("prevClient").onclick = prevClient;
-    document.getElementById("editClient").onclick = editClient;
-    document.getElementById("calculateEmissions").onclick = calculateEmissions;
-    document.getElementById("showDescription").onclick = showDescription;
-};
