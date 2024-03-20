@@ -37,7 +37,7 @@ function aplicarCambio() {
     let nuevoValor = document.getElementById("nuevoValor").value;
     let cliente = clientes[posicion];
 
-    if(nombreAtributo && nuevoValor.trim() !== "") {
+    if(nombreAtributo && nuevoValor !== "") {
         cliente[nombreAtributo] = nuevoValor;
         mostrarCliente(); // Refrescar
     }
