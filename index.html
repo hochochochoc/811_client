@@ -6,22 +6,22 @@
     <title>Cliente</title>
 </head>
 <body>
-    <div id="clientDetails"></div>
-    <button id="prevClient">Cliente Anterior</button>
-    <button id="nextClient">Siguiente Cliente</button>
-    <button id="editClient">Editar Cliente</button>
-    <button id="calculateEmissions">Calcular Emisiones</button>
-    <button id="showDescription">Mostrar Descripción</button> 
+    <div id="detallesCliente"></div>
+    <button id="clienteAnterior">Cliente Anterior</button>
+    <button id="clienteSiguiente">ClienteSiguiente</button>
+    <button id="editarCliente">Editar Cliente</button>
+    <button id="calcEmisiones">Calcular Emisiones</button>
+    <button id="mostrarDescripcion">Mostrar Descripción</button> 
 
     <div id="editForm" style="display:none;">
-        <select id="attributeName">
+        <select id="nombreAtributo">
             <option value="DNI">DNI</option>
             <option value="edad">Edad</option>
             <option value="nacionalidad">Nacionalidad</option>
             <option value="numVuelos">Número de Vuelos</option>
         </select>
-        <input type="text" id="newValue" placeholder="Nuevo Valor">
-        <button onclick="applyEdit()">Aplicar Edición</button>
+        <input type="text" id="nuevoValor" placeholder="Nuevo Valor">
+        <button onclick="aplicarCambio()">Aplicar Edición</button>
     </div>
 
     <script src="classClient.js"></script>
