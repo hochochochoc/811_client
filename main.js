@@ -1,7 +1,5 @@
-
-
 window.onload = function() {
-    let posicion = 0;
+    
     mostrarCliente();
     document.getElementById("clienteSiguiente").onclick = clienteSiguiente;
     document.getElementById("clienteAnterior").onclick = clienteAnterior;
@@ -11,7 +9,7 @@ window.onload = function() {
 };
 
 function mostrarCliente() {
-    const cliente = clientes[posicion];
+    let cliente = clientes[posicion];
     document.getElementById('detallesCliente').innerHTML =
         "<p>DNI: " + cliente.DNI + "</p>" +
         "<p>Edad: " + cliente.edad + "</p>" +
@@ -30,32 +28,31 @@ function clienteAnterior() {
 }
 
 function editarCliente() {
-    var form = document.getElementById("editForm");
+    let form = document.getElementById("editForm");
     form.style.display = form.style.display === "none" ? "block" : "none";
 }
 
 function aplicarCambio() {
-    const nombreAtributo = document.getElementById("nombreAtributo").value;
-    const nuevoValor = document.getElementById("nuevoValor").value;
-    const client = clientes[posicion];
+    let nombreAtributo = document.getElementById("nombreAtributo").value;
+    let nuevoValor = document.getElementById("nuevoValor").value;
+    let cliente = clientes[posicion];
 
     if(nombreAtributo && nuevoValor.trim() !== "") {
-        client[nombreAtributo] = nuevoValor;
+        cliente[nombreAtributo] = nuevoValor;
         mostrarCliente(); // Refrescar
     }
-
     document.getElementById("editForm").style.display = "none";
 }
 
 function calcEmisiones() {
-    const client = clientes[posicion];
-    const emissions = client.numVuelos * 0.5;
-    alert("Emisiones de gases de efecto invernadero: " + emissions + " toneladas de CO2");
+    let cliente = clientes[posicion];
+    let emisiones = cliente.numVuelos * 0.5;
+    alert("Emisiones de gases de efecto invernadero: " + emisiones + " toneladas de CO2");
 }
 
 function mostrarDescripcion() {
-    const client = clientes[posicion];
-    const description = "El cliente con el DNI de " + client.DNI + " tiene una edad de " + client.edad + 
-        ", tiene la nacionalidad " + client.nacionalidad.toLowerCase() + "a y ha tomado " + client.numVuelos + " vuelos.";
+    let cliente = clientes[posicion];
+    let description = "El cliente con el DNI de " + cliente.DNI + " tiene una edad de " + cliente.edad + 
+        ", tiene la nacionalidad " + cliente.nacionalidad.toLowerCase() + "a y ha tomado " + cliente.numVuelos + " vuelos.";
     alert(description);
 }
