@@ -1,5 +1,4 @@
 class Client {
-
     constructor(DNI, edad, nacionalidad, numVuelos){
         this.DNI = DNI;
         this.edad = edad;
